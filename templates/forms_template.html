@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}  {% endblock title %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+<link rel = "stylesheet" href = "{% static 'css/forms.css' %}">
+<div class="row h-100">
+        <div class="my-auto">
+
+        </div>
+        <div class="card my-auto mx-auto" style="width: 35rem;">
+                <div class="text-center">
+                        
+                        {% block info %}
+                            
+                        {% endblock info %}
+                            
+                </div>
+                
+            <hr>
+            <form method="POST"> {% csrf_token %}
+                <div style="padding-left: 10px;">
+                        {{form|crispy}}
+                </div>
+    
+                <div class="text-center">
+                    
+                    {% block button_post %}
+                        
+                    {% endblock button_post %}
+
+                </div>
+                
+            </form>
+        </div>
+</div>
+
+{% endblock content %}

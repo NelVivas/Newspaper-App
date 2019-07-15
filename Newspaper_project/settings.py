@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #third party apps
+    'crispy_forms',
+    # my apps
     'users',
+    'pages',
 ]
 
 MIDDLEWARE = [
@@ -119,9 +123,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Custom user authentication
 AUTH_USER_MODEL = 'users.CustomUser'
-#Login ad logput directions
+
+# Login ad logput directions
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+# Crispy forms for bootstrap
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Password reset email backend
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

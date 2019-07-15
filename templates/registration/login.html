@@ -1,14 +1,24 @@
-{% extends 'base.html' %}
-
-{% block title %} Log in {% endblock title %}
+{% extends 'forms_template.html' %}
 
 
+{% block title  %}
+   Login
+{% endblock title  %}
 
-{% block content %}
-    <h2>Login</h2>
-    <form method="POST"> {% csrf_token %}
-        {{form.as_p}}
-        <button type="sumbit"  class="btn btn-success ml-2" > login </button>
-    </form>
-{% endblock content %}
+
+{% block info %}
+    <h2 class = "card-title" style=" font-family: 'Montserrat', sans-serif; ">Login</h2>
+    
+{% endblock info %}
+
+{% block button_post %}
+    <div class="text-right">
+            <a href="{% url 'password_reset' %}" class = "text-right" style="text-decoration: none; padding-bottom: 10px;" > forgot your password? </a>
+    
+    </div>
+    <br>
+    <button type="submit" class="btn btn-success">login</button>
+
+{% endblock button_post %}
+    
     
